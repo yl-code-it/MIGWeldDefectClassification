@@ -12,16 +12,20 @@ Yu Lin, Soumitra Dinda, Senda Chinganzi, and Qi (Quincy) Zhang
 
 2- The images have dimensions of 576x300, 8-bit depth, .BMP format. Resize all of them to 150x150.
 
-3- Split images to 75-25% for training and test. Make sure you have the same distribution of Good/Bad weld types between train and test datasets.
+3- Split images to 75-25% for training and test. Make sure you have the same distribution of Good/Bad weld  types between train and test datasets.
 
-4- Use a VGG16 model (pre-trained on ImageNet)
+4- Baseline model - DNN without convolution/pooling feature extraction layers
 
-5- Remove the top layers (fully connected layers)
+5- Use a VGG16 model (pre-trained on ImageNet)
 
-6- Add your own fully connected layers (one with 256 nodes using ‘relu’ activation and output layer with 2 nodes (2 classes - Good/Bad welds) and ‘softmax’ activation)
+  5.1- Remove the top layers (fully connected layers)
 
-7- First, freeze all layers of VGG16, train (fine-tune) and evaluate the model. You need to pick the right hyper-parameters for your training (try with different ones)
+  5.2- Add your own fully connected layers (one with 256 nodes using ‘relu’ activation and output layer with 2 nodes (2 classes - Good/Bad welds) and ‘softmax’ activation)
 
-8- Second, unfreeze the last block of VGG16 (block5), re-train and evaluate the model
+  5.3- First, freeze all layers of VGG16, train (fine-tune) and evaluate the model. You need to pick the right hyper-parameters for your training (try with different ones)
 
-9- Third, enable all blocks of VGG16 to re-train and evaluate the model
+  5.4- Second, unfreeze the last block of VGG16 (block5), re-train and evaluate the model
+
+  5.5- Third, unfreeze all the layers and try again.
+
+6- Compare the accuracy you got in both cases . Which one is better and why?
